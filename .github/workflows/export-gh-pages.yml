@@ -47,6 +47,15 @@ jobs:
       - name: List exported files
         run: ls -la game/build/html5 || true
 
+      - name: Debug publish dir
+        run: |
+          echo "=== LIST ==="
+          ls -la game/build/html5 || true
+          echo "=== FILE SIZES ==="
+          find game/build/html5 -maxdepth 3 -type f -exec du -h {} + || true
+          echo "=== INDEX CHECK ==="
+          if [ -f game/build/html5/index.html ]; then echo "index exists"; wc -c game/build/html5/index.html; else echo "index missing"; fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
