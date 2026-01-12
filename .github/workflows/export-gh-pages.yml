@@ -24,29 +24,15 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Download Godot (headless)
-        run: |
-          GODOT_VER=4.2.4
-          wget -q -O godot.zip "https://downloads.tuxfamily.org/godotengine/${GODOT_VER}/Godot_v${GODOT_VER}-stable_linux_headless.64.zip" || true
-          unzip -q godot.zip -d godot || true
-          ls -la godot || true
-        shell: bash
-
-      - name: Download export templates
-        run: |
-          # Download Godot export templates (adjust version if needed)
-          GODOT_VER=4.2.4
-          wget -q -O templates.zip "https://downloads.tuxfamily.org/godotengine/${GODOT_VER}/Godot_v${GODOT_VER}-stable_export_templates.tpz" || true
-          mkdir -p ~/.local/share/godot/templates
-          unzip -q templates.zip -d ~/.local/share/godot/templates || true
-          ls -la ~/.local/share/godot/templates || true
-        shell: bash
+      - name: Setup Godot
+        uses: game-ci/setup-godot@v3
+        with:
+          godot-version: '4.2.4'
+          export-templates: true
 
       - name: Export HTML5
         run: |
-          chmod +x godot/* || true
-          # Use the Godot headless binary to export; the export preset name must match
-          ./godot/Godot_v* -s --export "HTML5" "game/build/html5" || true
+          godot --headless --export "HTML5" "game/build/html5"
         shell: bash
 
       - name: List exported files
