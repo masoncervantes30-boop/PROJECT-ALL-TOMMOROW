@@ -8,10 +8,12 @@ var dir := 1
 var fused := false
 var debug_reveal := false
 onready var sprite := $Sprite
-onready var gm := get_node("/root/GameManager") if Engine.has_singleton("GameManager") else null
+onready var gm = null
 
 func _ready():
     start_pos = global_position
+    if Engine.has_singleton("GameManager"):
+        gm = get_node("/root/GameManager")
     if gm:
         gm.set_moving(get_instance_id(), false)
 
@@ -36,8 +38,8 @@ func _physics_process(delta):
     elif gm and not gm.is_all_stopped() and fused:
         _unfuse()
 
-    # debug reveal toggle (press R)
-    if Input.is_key_just_pressed(Key.R):
+    # debug reveal toggle (press R or action)
+    if Input.is_action_just_pressed("reveal"):
         debug_reveal = not debug_reveal
         _apply_reveal(debug_reveal)
 

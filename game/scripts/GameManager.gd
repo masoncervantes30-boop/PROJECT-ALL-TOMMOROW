@@ -4,7 +4,12 @@ extends Node
 var movers := {}
 
 func _ready():
-    pass
+    # Ensure the 'reveal' input action exists so debug toggle works
+    if not InputMap.has_action("reveal"):
+        InputMap.add_action("reveal")
+        var ev := InputEventKey.new()
+        ev.keycode = Key.R
+        InputMap.action_add_event("reveal", ev)
 
 func set_moving(id: int, moving: bool) -> void:
     movers[id] = moving

@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 const SPEED := 220.0
 
-onready var gm := get_node("/root/GameManager") if Engine.has_singleton("GameManager") else null
+onready var gm = null
 
 func _ready():
+    if Engine.has_singleton("GameManager"):
+        gm = get_node("/root/GameManager")
     if gm:
         gm.set_moving(get_instance_id(), false)
 
