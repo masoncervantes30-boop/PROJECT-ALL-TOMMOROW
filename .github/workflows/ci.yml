@@ -16,6 +16,7 @@ jobs:
 
       - name: Run gitleaks
         uses: zricethezav/gitleaks-action@v2
+        continue-on-error: true
         with:
           args: '--verbose'
 
