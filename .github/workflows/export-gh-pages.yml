@@ -5,6 +5,11 @@ on:
     branches: [ main ]
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   export-and-deploy:
     name: Export HTML5 and deploy to gh-pages
@@ -56,8 +61,10 @@ jobs:
           echo "=== INDEX CHECK ==="
           if [ -f game/build/html5/index.html ]; then echo "index exists"; wc -c game/build/html5/index.html; else echo "index missing"; fi
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./game/build/html5
+          path: ./game/build/html5
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
