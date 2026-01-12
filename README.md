@@ -2,6 +2,14 @@
 
 [![CI](https://github.com/masoncervantes30-boop/PROJECT-ALL-TOMMOROW/actions/workflows/ci.yml/badge.svg)](https://github.com/masoncervantes30-boop/PROJECT-ALL-TOMMOROW/actions/workflows/ci.yml)
 
+**Game prototype:** the Godot project is in the `game/` folder. To play the prototype:
+
+1. Open the **game/** folder or `game/project.godot` in Godot 4.
+2. In Godot: Project > Project Settings > Autoload → add `res://scripts/GameManager.gd` as `GameManager`.
+3. Open `Main.tscn` and press Play (WASD/arrows to move; R to toggle reveal).
+
+If you want, I can add a direct link to the GitHub Pages demo here once the site is live.
+
 echo "# PROJECT-ALL-TOMMOROW" >> README.md
 git init
 git add README.md
