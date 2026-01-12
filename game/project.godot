@@ -1,5 +1,9 @@
 [application]
 config/name="PROJECT-ALL-TOMMOROW - Game Prototype"
+run/main_scene="res://scenes/Main.tscn"
+
+[autoload]
+GameManager="res://scripts/GameManager.gd"
 
 [display]
 window/size/width=1024

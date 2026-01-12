@@ -7,7 +7,7 @@ Overview
 
 How to open
 1. Install Godot 4 (latest stable). 2. Open this folder (`game/`) as a project in Godot.
-2. Setup (optional): add `GameManager.gd` as an Autoload with the name `GameManager` (in Project > Project Settings > Autoload, set path `res://scripts/GameManager.gd` name `GameManager`).
+3. The project is preconfigured: `GameManager.gd` is added as an Autoload and `Main.tscn` is set as the project main scene, so you can simply open the `game/` folder in Godot and press Play (no extra setup required).
 
 Controls
 - Move: WASD / Arrow keys
