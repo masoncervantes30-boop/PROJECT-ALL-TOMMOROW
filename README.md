@@ -41,4 +41,5 @@ To open the repo in a Codespace or container:
 - In GitHub: click **Code ▶ Open with Codespaces** (or **Open in Container** in VS Code).
 - The container forwards port `8000` (useful if you later add a web server).
 
-When the container finishes setup, dependencies will be installed automatically and you'll be ready to run `python hello.py` and `pytest`.
+When the container finishes setup, dependencies will be installed automatically and `pytest` will be run to verify tests pass. If tests fail the container creation will surface the error so you can inspect logs and fix the issue; otherwise you can run `python hello.py` to run the example.
+
