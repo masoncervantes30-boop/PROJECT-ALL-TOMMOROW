@@ -1,0 +1,6 @@
+[application]
+config/name="PROJECT-ALL-TOMMOROW - Game Prototype"
+
+[display]
+window/size/width=1024
+window/size/height=768

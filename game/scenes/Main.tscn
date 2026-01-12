@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+color = Color(0.95, 0.95, 0.95)
+rect_min_size = Vector2(1024, 768)
+
+[node name="Player" parent="."]
+instance = "res://scenes/Player.tscn"
+
+[node name="Enemy" parent="."]
+instance = "res://scenes/Enemy.tscn"
