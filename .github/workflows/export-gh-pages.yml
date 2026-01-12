@@ -1,0 +1,54 @@
+name: Export Godot HTML5 and Publish to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  export-and-deploy:
+    name: Export HTML5 and deploy to gh-pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python (for scripting)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Download Godot (headless)
+        run: |
+          GODOT_VER=4.2.4
+          wget -q -O godot.zip "https://downloads.tuxfamily.org/godotengine/${GODOT_VER}/Godot_v${GODOT_VER}-stable_linux_headless.64.zip" || true
+          unzip -q godot.zip -d godot || true
+          ls -la godot || true
+        shell: bash
+
+      - name: Download export templates
+        run: |
+          # Download Godot export templates (adjust version if needed)
+          GODOT_VER=4.2.4
+          wget -q -O templates.zip "https://downloads.tuxfamily.org/godotengine/${GODOT_VER}/Godot_v${GODOT_VER}-stable_export_templates.tpz" || true
+          mkdir -p ~/.local/share/godot/templates
+          unzip -q templates.zip -d ~/.local/share/godot/templates || true
+          ls -la ~/.local/share/godot/templates || true
+        shell: bash
+
+      - name: Export HTML5
+        run: |
+          chmod +x godot/* || true
+          # Use the Godot headless binary to export; the export preset name must match
+          ./godot/Godot_v* -s --export "HTML5" "game/build/html5" || true
+        shell: bash
+
+      - name: List exported files
+        run: ls -la game/build/html5 || true
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./game/build/html5
