@@ -27,4 +27,15 @@ git push -u origin main
 4. Run tests:
 
    pytest
+---
 
+## Codespaces / Dev Container (optional) 🐳
+
+This repo includes a `.devcontainer` that uses a Python dev container image and automatically installs `requirements.txt` after the container is created.
+
+To open the repo in a Codespace or container:
+
+- In GitHub: click **Code ▶ Open with Codespaces** (or **Open in Container** in VS Code).
+- The container forwards port `8000` (useful if you later add a web server).
+
+When the container finishes setup, dependencies will be installed automatically and you'll be ready to run `python hello.py` and `pytest`.
