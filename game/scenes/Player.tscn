@@ -7,6 +7,10 @@ script = ExtResource( 1 )
 texture = null
 modulate = Color(0.8, 0.9, 1)
 
+[node name="Placeholder" type="Polygon2D" parent="."]
+polygon = [ Vector2( -8, -8 ), Vector2( 8, -8 ), Vector2( 8, 8 ), Vector2( -8, 8 ) ]
+color = Color(0.2, 0.6, 1.0, 1.0)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = CircleShape2D { radius = 8.0 }
 

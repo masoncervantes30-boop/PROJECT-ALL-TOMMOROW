@@ -5,6 +5,9 @@
 [node name="Background" type="ColorRect" parent="."]
 color = Color(0.95, 0.95, 0.95)
 rect_min_size = Vector2(1024, 768)
+material = ExtResource( 1 )
+
+[ext_resource path="res://game/shaders/snow_material.tres" type="ShaderMaterial" id=1]
 
 [node name="Player" parent="."]
 instance = "res://scenes/Player.tscn"

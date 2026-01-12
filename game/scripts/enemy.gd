@@ -36,8 +36,8 @@ func _physics_process(delta):
     elif gm and not gm.is_all_stopped() and fused:
         _unfuse()
 
-    # debug reveal toggle
-    if Input.is_action_just_pressed("reveal"):
+    # debug reveal toggle (press R)
+    if Input.is_key_just_pressed(Key.R):
         debug_reveal = not debug_reveal
         _apply_reveal(debug_reveal)
 

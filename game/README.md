@@ -13,6 +13,12 @@ Controls
 - Move: WASD / Arrow keys
 - Reveal fused enemies (debug): press `R` (toggle)
 
+How to see placeholders & shader
+1. Open `game/` in Godot and enable `GameManager` as an Autoload (see above).
+2. `Main.tscn` now has visible placeholder blocks for player (blue square) and enemy (gray square).
+3. The background uses the `snow_fuzz.shader` to give a subtle fuzzy snow look; you should see it automatically.
+4. Play: press Play > Play Current Scene on `Main.tscn` and test movement/fusion.
+
 Files added
 - `scenes/Main.tscn` — root scene
 - `scenes/Player.tscn` — player node (CharacterBody2D)

@@ -1,0 +1,5 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+[resource]
+shader = ExtResource( 1 )
+
+[ext_resource path="res://game/shaders/snow_fuzz.shader" type="Shader" id=1]
