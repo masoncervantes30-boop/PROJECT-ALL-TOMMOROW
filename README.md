@@ -1,4 +1,7 @@
 # PROJECT-ALL-TOMMOROW
+
+[![CI](https://github.com/masoncervantes30-boop/PROJECT-ALL-TOMMOROW/actions/workflows/ci.yml/badge.svg)](https://github.com/masoncervantes30-boop/PROJECT-ALL-TOMMOROW/actions/workflows/ci.yml)
+
 echo "# PROJECT-ALL-TOMMOROW" >> README.md
 git init
 git add README.md
