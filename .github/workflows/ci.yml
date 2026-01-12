@@ -7,6 +7,18 @@ on:
     branches: [ main ]
 
 jobs:
+  gitleaks:
+    name: Secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run gitleaks
+        uses: zricethezav/gitleaks-action@v2
+        with:
+          args: '--verbose'
+
   test:
     name: Run tests
     runs-on: ubuntu-latest
